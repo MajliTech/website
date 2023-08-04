@@ -12,7 +12,7 @@ jobs:
       - name: Setup NodeJS
         uses: actions/setup-node@v1
         with:
-          node-version: 18
+          node-version: latest
       - name: Install Inliner
         run: sudo npm install -g inliner
       - name: Create website root
