@@ -1,0 +1,26 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  inline:
+    name: Inline the website and deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Setup NodeJS
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18
+      - name: Install Inliner
+        run: sudo npm install -g inliner
+      - name: Create website root
+        run: mkdir www-root && cd www-root
+      - name: Inline the website
+        run: inliner index.html > index.html
+      - name: Upload Website as an artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: www-root
+          path: .
+      # Soon - use surge.sh to deploy the website
