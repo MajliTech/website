@@ -13,8 +13,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "*"
+      - name: Install surge.sh
+        run: sudo npm i -g surge
       - name: Deploy to frontend
-        run: npx --no-install surge --project src --domain majlitech.pl
+        run: surge --project src --domain majlitech.pl
         env:
             SURGE_LOGIN: ${{secrets.SURGE_EMAIL}}
             SURGE_TOKEN: ${{secrets.SURGE_TOKEN}}
