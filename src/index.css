@@ -1,13 +1,155 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+@import url('fonts/MonaSans.css');
+
 html {
     font-family: 'Source Code Pro', monospace;
     background-color: rgb(250, 232, 198);
 }
-#box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: fit-content;
+
+#header {
+    background-color: rgba(0, 0, 0, 0.603);
+    /* background-color: rgb(0, 132, 255); */
+    width: 100%;
+    /* height: 10vh; */
+    display: flex;
+    flex-direction: row;
+    color: white;
+    position: fixed;
     text-align: center;
+    z-index: 2;
+    top: 0;
+    align-items: center;
+}
+
+.btn[data-selected=true] {
+    background-color: var(--color);
+}
+
+.btn {
+    border-bottom: 2vh solid var(--color);
+    height: 8vh;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mobileMenu {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    top: 0
+}
+
+#mobile {
+    display: none;
+}
+
+#nojavascript {
+    font-family: monospace;
+    position: absolute;
+    z-index: 222;
+    background-color: rgb(250, 232, 198);
+    width: 100%;
+    height: 100%;
+}
+
+:root {
+    --spacer: 8vh;
+}
+
+#content {
+    text-align: center;
+    margin-top: var(--spacer);
+    padding: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.small {
+    font-size: 75%;
+}
+
+@media (max-width : 770px) {
+    :root {
+        --spacer: 5vh;
+
+    }
+
+    #header {
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+    }
+
+    .btn {
+        height: 12vh;
+        width: 100%;
+    }
+
+    #mobileMenu,
+    #mobile {
+        display: flex;
+    }
+}
+
+td {
+    width: 50%
+}
+
+table tr td {
+    border: 1px solid black;
+}
+
+table {
+    width: 75%;
+
+}
+
+* {
+    border-collapse: collapse;
+}
+
+code {
+    background-color: rgb(211, 211, 211);
+    width: 100%;
+}
+
+#repos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.repo-card {
+    color: white;
+    margin: 2px;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(145deg, rgba(0, 0, 0, 1) 0%, rgba(20, 33, 61, 1) 100%);
+    font-family: 'Mona Sans';
+    text-align: left;
+    padding: 10px;
+    min-width: 230px;
+    max-width: 270px;
+}
+.openingh {
+    padding: 5px 16px;
+    font-family: 'Mona Sans';
+    background-color: #00aa17;
+    color: white;
+    font-weight: bold;
+    border: 2px solid white;
+    border-radius: 25px;
+
 }

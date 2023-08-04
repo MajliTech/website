@@ -1,0 +1,46 @@
+<h1>Moje projekty</h1>
+<p>Uwaga! Te są automatycznie ściągane z GitHuba przez twoją przeglądarkę.</p>
+<div id="repos">
+
+</div>
+<script data-execute>
+  async function fetchAndPopulateRepos() {
+            const response = await fetch('https://api.github.com/users/MajliTech/repos');
+            const data = await response.json();
+
+            const reposDiv = document.getElementById('repos');
+            data.forEach(repo => {
+                if (!repo.fork && repo.name!=repo.owner.login) {
+                const repoDiv = document.createElement('div');
+
+                const h1 = document.createElement('h2');
+                h1.innerText = repo.name;
+                repoDiv.appendChild(h1);
+
+                const h2 = document.createElement('h3');
+                h2.innerText = repo.description;
+                h2.style.color="rgb(184, 184, 184)"
+                repoDiv.appendChild(h2);
+
+                const h3 = document.createElement('h4');
+                h3.style.color="rgb(184, 184, 184)"
+                const topLanguage = repo.language ? repo.language : 'N/A';
+                const starCount = repo.stargazers_count ? repo.stargazers_count : 0;
+                h3.innerText = `${topLanguage} \u00B7 ${starCount}`;
+                repoDiv.appendChild(h3);
+                repoDiv.classList.add("repo-card")
+                reposDiv.appendChild(repoDiv);
+                const openbutton = document.createElement("button")
+                openbutton.classList.add("openingh")
+                openbutton.innerText="Otwórz na GitHubie"
+                repoDiv.appendChild(openbutton)
+                repoDiv.addEventListener("click",() => {
+                    open(repo.html_url)
+                })
+            }
+            });
+        }
+
+        // Call the function to fetch and populate repositories
+        fetchAndPopulateRepos();
+</script>

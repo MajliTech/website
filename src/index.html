@@ -4,16 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>W trakcie tworzenia</title>
+    <title>Strona MajliTecha</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="index.js"></script>
 </head>
 
 <body>
-    <div id="box">
-        <h1># Hmm... tu jeszcze nic nie ma.</h1>
-        <h2>## Zerknij tu ponownie później, a może się coś pojawi.</h2>
+
+    <div id="nojavascript">
+        <h1>Ta witryna WYMAGA JavaScript.</h1>
+        <h2>Nie posiadzasz lub nie chcesz używać go? <a href="/basic/">Załaduj wersję podstawową.</a></h2>
+    </div>
+    <script>document.querySelector("#nojavascript").remove()</script>
+    <div style="display: none; color: rgb(255, 255, 255); text-align: center; background-color: rgba(0, 0, 0, 0.603);"
+        onclick="show()" id="mobileMenu">
+        <p>Kliknij tu, aby otworzyć menu.</p>
+    </div>
+    <div id="header">
+        <div style="--color: rgb(0, 132, 255);" data-selected="false" class="btn" id="omnie" onclick="location.hash = 'omnie';updateContent()">
+            <h2>O mnie</h2>
+        </div>
+        <div style="--color: rgb(201, 21, 21);" data-selected="false" class="btn" id="projekty" onclick="location.hash = 'projekty';updateContent()">
+            <h2>Moje projekty</h2>
+        </div>
+        <div style="--color: rgb(21, 201, 45);" data-selected="false" class="btn" id="socialmedia" onclick="location.hash = 'socialmedia';updateContent()">
+            <h2>Social media</h2>
+        </div>
+        <div style="--color: rgb(206, 170, 13);" data-selected="false" class="btn" id="kontakt" onclick="location.hash = 'kontakt';updateContent()">
+            <h2>Kontakt</h2>
+        </div>
+        <p id="mobile">Kliknij poza menu, aby wyjść.</p>
+    </div>
+
+    <div id="content">
+
     </div>
 </body>
 
