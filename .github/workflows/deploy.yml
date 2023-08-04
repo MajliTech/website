@@ -4,7 +4,7 @@ on:
 
 jobs:
   inline:
-    name: Inline the website and deploy
+    name: Deploy website
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -13,18 +13,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "*"
-      - name: Install Inliner
-        run: sudo npm install -g inliner
-      - name: Create website root
-        run: mkdir www-root
-      - name: Inline the website
-        run: inliner index.html > www-root/index.html
-      - name: Upload Website as an artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: www-root
-          path: www-root
-        
-      - name: tree [DEBUG]
-        run: sudo apt install tree -y && tree
-      # Soon - use surge.sh to deploy the website
+      - name: Deploy to frontend
+        run: npx --no-install surge --project src --domain majlitech.pl
+        env:
+            SURGE_LOGIN: ${{secrets.SURGE_EMAIL}}
+            SURGE_TOKEN: ${{secrets.SURGE_TOKEN}}
