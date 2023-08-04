@@ -9,8 +9,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: tree [DEBUG]
-        run: sudo apt install tree -y && tree
       - name: Setup NodeJS
         uses: actions/setup-node@v1
         with:
@@ -26,4 +24,7 @@ jobs:
         with:
           name: www-root
           path: www-root
+        
+      - name: tree [DEBUG]
+        run: sudo apt install tree -y && tree
       # Soon - use surge.sh to deploy the website
