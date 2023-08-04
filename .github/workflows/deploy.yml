@@ -16,12 +16,12 @@ jobs:
       - name: Install Inliner
         run: sudo npm install -g inliner
       - name: Create website root
-        run: mkdir www-root && cd www-root
+        run: mkdir www-root
       - name: Inline the website
-        run: inliner index.html > index.html
+        run: inliner index.html > www-root/index.html
       - name: Upload Website as an artifact
         uses: actions/upload-artifact@v3
         with:
           name: www-root
-          path: .
+          path: www-root
       # Soon - use surge.sh to deploy the website
