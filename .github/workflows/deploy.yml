@@ -9,14 +9,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Setup NodeJS
-        uses: actions/setup-node@v1
-        with:
-          node-version: "*"
-      - name: Install surge.sh
-        run: sudo npm i -g surge
+      - name: Install flyctl
+        run: curl -L https://fly.io/install.sh | sh
       - name: Deploy to frontend
-        run: surge --project src --domain majlitech.pl
+        run: /home/runner/.fly/bin/flyctl deploy
         env:
-            SURGE_LOGIN: ${{secrets.SURGE_EMAIL}}
-            SURGE_TOKEN: ${{secrets.SURGE_TOKEN}}
+            FLY_API_TOKEN: ${{secrets.SURGE_EMAIL}}
