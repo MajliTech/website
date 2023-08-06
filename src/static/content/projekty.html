@@ -15,7 +15,17 @@
             data.forEach(repo => {
                 if (!repo.fork && repo.name!=repo.owner.login) {
                 const repoDiv = document.createElement('div');
-
+		if (repo.archived) {
+			const archived = document.createElement("div")
+			const text = document.createElement("p")
+			text.innerText="Zarchiwizowane"
+			archived.style.backgroundColor="#b38300"
+			archived.style.color="white"
+			archived.style.width="100%"
+			archived.style.textAlign="center"
+			archived.appendChild(text)
+			repoDiv.appendChild(archived)
+		}
                 const h1 = document.createElement('h2');
                 h1.innerText = repo.name;
                 repoDiv.appendChild(h1);
@@ -24,7 +34,7 @@
                 h2.innerText = repo.description;
                 h2.style.color="rgb(184, 184, 184)"
                 repoDiv.appendChild(h2);
-
+		
                 const h3 = document.createElement('h4');
                 h3.style.color="rgb(184, 184, 184)"
                 const topLanguage = repo.language ? repo.language : 'N/A';
