@@ -25,6 +25,7 @@ html {
     padding: 15px;
     font-size: 13px;
     text-align: center;
+    word-break: break-all; 
 }
 .btn[data-selected=true] {
     background-color: var(--color);
