@@ -11,7 +11,7 @@ def return_template():
     paragraphs = ""
     for repo in data:
         paragraph = ""
-        if repo["fork"] or repo["name"] == repo["owner"]["login"]:
+        if repo["fork"] or repo["name"] == repo["owner"]["login"] or repo["name"]!="website":
             continue
         if repo["archived"]:
             paragraph = "<i>"

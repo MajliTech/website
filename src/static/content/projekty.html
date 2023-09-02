@@ -1,5 +1,9 @@
 <!-- allowsend -->
 <!-- template -->
+<div id="undercontent">
+    
+    <p>Strona onion: <a href="http://mn2yv566eznewaelsxg5jfsksnznfz7ltfiy7mn3xoe4t5foubmu2sid.onion">mn2yv566eznewaelsxg5jfsksnznfz7ltfiy7mn3xoe4t5foubmu2sid.onion</a></p>
+</div>
 <title>Projekty</title>
 <h1>Moje projekty</h1>
 <p>Uwaga! Te są automatycznie ściągane z GitHuba przez twoją przeglądarkę.</p>
@@ -13,7 +17,7 @@
 
             const reposDiv = document.getElementById('repos');
             data.forEach(repo => {
-                if (!repo.fork && repo.name!=repo.owner.login) {
+                if (!repo.fork && repo.name!=repo.owner.login && repo.name!="website") {
                 const repoDiv = document.createElement('div');
 		if (repo.archived) {
 			const archived = document.createElement("div")
