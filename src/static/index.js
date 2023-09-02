@@ -30,7 +30,7 @@ function uDShort(substring) {
                     eval(scriptElement.innerText); // Execute the script content
                 });
             } else {
-                content.innerHTML = "<h1>Błąd wczytywania zawartości. <a href='https://github.com/MajliTech/website'>Chciałbyś to zgłośić?</a></h1>";
+                content.innerHTML = "<h1>Błąd wczytywania zawartości. <a href='https://github.com/MajliTech/website'>Chcesz to zgłośić?</a></h1>";
             }
         };
         xhr.send();
