@@ -23,6 +23,8 @@ html {
     width: 100%;
     background-color: rgb(218, 218, 22);
     padding: 15px;
+    font-size: 13px;
+    text-align: center;
 }
 .btn[data-selected=true] {
     background-color: var(--color);
