@@ -16,7 +16,7 @@ function uDShort(substring) {
     content.childNodes.forEach(element => {
         element.remove()
     });
-    if (!cache[substring] == undefined) {
+    if (cache[substring] != undefined) {
         content.innerHTML = cache[substring]
     } else {
         const xhr = new XMLHttpRequest();
