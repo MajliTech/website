@@ -8,9 +8,7 @@ html {
 
 #header {
     background-color: rgba(0, 0, 0, 0.603);
-    /* background-color: rgb(0, 132, 255); */
     width: 100%;
-    /* height: 10vh; */
     display: flex;
     flex-direction: row;
     color: white;
@@ -20,9 +18,22 @@ html {
     top: 0;
     align-items: center;
 }
+
 #undercontent {
-	position: absolute
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8vh;
+    z-index: 2;
+    background-color: rgb(206, 206, 0);
+    width: 100%;
+    text-align: center;
+    /* padding: 15px; */
+    height: 7vh;
+    color: white;
 }
+
 .btn[data-selected=true] {
     background-color: var(--color);
 }
@@ -61,7 +72,7 @@ html {
 }
 
 :root {
-    --spacer: 8vh;
+    --spacer: 15vh;
 }
 
 
@@ -77,8 +88,15 @@ body {
 
 @media (max-width : 770px) {
     :root {
-        --spacer: 5vh;
+        --spacer: 7vh;
 
+    }
+
+    #undercontent {
+        z-index: 0;
+        position: absolute;
+        margin-top: 5vh;
+        font-size: 2vh;
     }
 
     #header {
@@ -97,17 +115,21 @@ body {
         display: flex;
     }
 }
+
 #content {
     text-align: center;
     margin-top: var(--spacer);
     padding: 5vh;
     display: flex;
     flex-direction: column;
-    align-items: center;                                    width: 75%;
+    align-items: center;
+    width: 75%;
 }
-#content::after{
-	content: var(--spacer)
+
+#content::after {
+    content: var(--spacer)
 }
+
 td {
     width: 50%
 }
@@ -146,6 +168,7 @@ code {
     min-width: 230px;
     max-width: 270px;
 }
+
 .openingh {
     padding: 5px 16px;
     font-family: 'Mona Sans';
