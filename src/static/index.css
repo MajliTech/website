@@ -84,12 +84,6 @@ body {
 
     }
 
-    #undercontent {
-        z-index: 0;
-        position: absolute;
-        margin-top: 5vh;
-        font-size: 2vh;
-    }
 
     #header {
         flex-direction: column;
