@@ -18,6 +18,10 @@ function uDShort(substring) {
     });
     if (cache[substring] != undefined) {
         content.innerHTML = cache[substring]
+        const scriptElements = content.querySelectorAll('script[data-execute]');
+                scriptElements.forEach(scriptElement => {
+                    eval(scriptElement.innerText); // Execute the script content
+                });
     } else {
         const xhr = new XMLHttpRequest();
         xhr.open("GET", "/content/" + substring + ".html");
